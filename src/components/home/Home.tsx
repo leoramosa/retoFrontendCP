@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import {
   Card,
   CardHeader,
@@ -9,6 +10,12 @@ import {
 } from "@nextui-org/react";
 
 export const Home = () => {
+  const router = useRouter();
+
+  const handleBuyClick = () => {
+    // Redirigir a la página de inicio de sesión cuando se hace clic en "Comprar"
+    router.push("/login");
+  };
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -55,6 +62,7 @@ export const Home = () => {
                   color="primary"
                   radius="full"
                   size="sm"
+                  onClick={handleBuyClick}
                 >
                   Comprar
                 </Button>
