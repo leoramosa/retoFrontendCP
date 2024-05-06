@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import {
   Card,
   CardHeader,
@@ -10,12 +10,6 @@ import {
 } from "@nextui-org/react";
 
 export const Home = () => {
-  const router = useRouter();
-
-  const handleBuyClick = () => {
-    // Redirigir a la página de inicio de sesión cuando se hace clic en "Comprar"
-    router.push("/login");
-  };
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -36,7 +30,7 @@ export const Home = () => {
     const premieresData = await fetchData();
     return (
       <>
-        <div className="mx-auto max-w-[1440px] gap-5 grid grid-cols-12 grid-rows-6 px-8">
+        <div className="mx-auto max-w-[1440px] gap-5 grid grid-cols-12 grid-rows-2 px-8">
           {premieresData?.premieres?.map((premiere, index) => (
             <Card
               key={index}
@@ -57,15 +51,16 @@ export const Home = () => {
                 <div>
                   <p className="text-black text-tiny">{premiere.description}</p>
                 </div>
-                <Button
-                  className="text-tiny"
-                  color="primary"
-                  radius="full"
-                  size="sm"
-                  onClick={handleBuyClick}
-                >
-                  Comprar
-                </Button>
+                <Link href="/login">
+                  <Button
+                    className="text-tiny"
+                    color="primary"
+                    radius="full"
+                    size="sm"
+                  >
+                    Comprar
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
@@ -76,10 +71,5 @@ export const Home = () => {
 
   <ul></ul>;
 
-  return (
-    <div>
-      <h1>Descripciones de las Premieres:</h1>
-      {renderPremieres()}
-    </div>
-  );
+  return <div>{renderPremieres()}</div>;
 };
