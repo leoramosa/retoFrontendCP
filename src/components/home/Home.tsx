@@ -30,7 +30,7 @@ export const Home = () => {
     const premieresData = await fetchData();
     return (
       <>
-        <div className="mx-auto max-w-[1440px] gap-5 grid grid-cols-12 grid-rows-2 px-8">
+        <div className="mt-16 mx-auto max-w-[1440px] gap-5 grid grid-cols-12 grid-rows-2 px-8">
           {premieresData?.premieres?.map((premiere, index) => (
             <Card
               key={index}

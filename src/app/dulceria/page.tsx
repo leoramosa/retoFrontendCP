@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Card, CardBody, CardFooter, Image, image } from "@nextui-org/react";
-import confiteria from "./assets/confiteria.png";
+import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+
 const Dulceria = () => {
   const fetchDataCandystore = async () => {
     try {
@@ -32,8 +32,8 @@ const Dulceria = () => {
                   radius="lg"
                   width="100%"
                   alt=""
-                  className="w-full object-cover h-[140px] bg-blue-400"
-                  src=""
+                  className="w-full object-cover h-[240px] bg-blue-400"
+                  src="/images/confiteria.png"
                 />
               </CardBody>
               <CardFooter className="text-small block">
